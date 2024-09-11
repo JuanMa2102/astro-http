@@ -1,6 +1,5 @@
 import type { APIRoute } from "astro";
 import { getCollection, getEntry } from "astro:content";
-import { slug } from "../../../../dist/server/chunks/first-post_CpkV-YNB.mjs";
 
 export const prerender = false;
 
@@ -51,6 +50,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
 
 
 export const DELETE: APIRoute = async ({ params, request }) => {
+    const { slug } = params;
     const body = await request.json();
     return new Response(
         JSON.stringify( {
